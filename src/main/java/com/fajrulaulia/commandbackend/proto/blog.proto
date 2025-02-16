@@ -1,0 +1,32 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.fajrulaulia.commandbackend.generated";
+
+service BlogService {
+  rpc Create (BlogRequest) returns (BlogResponse);
+  rpc Delete (BlogIdRequest) returns (BlogResponseEmpty);
+}
+
+message BlogResponseEmpty {
+
+}
+
+
+message BlogIdRequest {
+  int64 id = 1;
+}
+
+message BlogRequest {
+  string title = 1;
+  string content = 2;
+  string author = 3;
+  string created_at = 4;
+}
+
+message BlogResponse {
+  int64 id = 1;
+  string title = 2;
+  string content = 3;
+  string author = 4;
+  string created_at = 5;
+}
